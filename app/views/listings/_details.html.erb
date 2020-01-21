@@ -1,0 +1,9 @@
+<% listings.each do |listing| %>
+  <div class="card card-sm mb-3">
+    <div class="card-body">
+      <p><strong>Your Status</strong>:<br>
+        <%= listing.user_status %><br>
+      <strong>Your Season</strong>: <%= listing.user_season %></p>
+    </div>
+  </div>
+<% end %>

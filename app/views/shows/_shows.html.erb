@@ -1,0 +1,23 @@
+<table class="table table-striped table-hover table-light">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Channel</th>
+      <th scope="col">Seasons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% alphebetize(shows).each do |show| %>
+      <tr>
+        <th scope="row"><%= link_to show.title, show_path(show) %></th>
+        <td><%= show.channel.name %></td>
+        <td><%= show.current_season %></td>
+        <% unless show.is_favourite(current_user) %>
+          <td><%= link_to "Mark as favourite", show_set_as_favourite_path(show) %></td>
+        <% else %>
+          <td><%= link_to "Remove from favourites", show_remove_from_favourites_path(show)%></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
